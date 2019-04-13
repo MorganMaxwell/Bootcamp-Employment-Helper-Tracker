@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Col, Row} from 'bootstrap';
+import {Container, Col, Row} from 'react-bootstrap';
 import NavHead from "../NavHead";
 import Stats from "../Stats";
 import Feed from "../Feed";
