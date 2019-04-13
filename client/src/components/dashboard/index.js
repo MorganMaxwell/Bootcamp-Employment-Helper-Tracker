@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Col, Row} from 'bootstrap';
+import {Container, Col, Row} from 'react-bootstrap';
 import NavHead from "../NavHead";
 import Stats from "../Stats";
 import Feed from "../Feed";
@@ -13,9 +13,9 @@ class Dashboard extends Component {
             <NavHead></NavHead>
             <Container>
                 <Row>
-                    <Col size="md-3"><Stats></Stats></Col>
-                    <Col size="md-6"><Feed></Feed></Col>
-                    <Col size="md-3"><MyJobs></MyJobs></Col>
+                    <Col lg="3"><Stats></Stats></Col>
+                    <Col lg="6"><Feed></Feed></Col>
+                    <Col lg="3"><MyJobs></MyJobs></Col>
                 </Row>
             </Container>
         </div>
