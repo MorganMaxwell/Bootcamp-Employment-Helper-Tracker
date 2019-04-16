@@ -25,6 +25,7 @@ const data = [
 ];
 
 class Dashboard extends Component {
+  // use state to hold like 30 posts, and do some fancy scrolling stuff to load more?
   // componentDidMount() {
   //   axios.get();
   // };
