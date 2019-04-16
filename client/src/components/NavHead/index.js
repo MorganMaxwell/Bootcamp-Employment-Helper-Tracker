@@ -5,7 +5,7 @@ import "./style.css";
 
 export default function NavHead() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar id="topNav" bg="light" expand="lg">
             <Navbar.Brand href="#home">$(Dev.Money)</Navbar.Brand>
             <Nav.Link href="#">Dashboard</Nav.Link>
             <Nav.Link href="#">Profile</Nav.Link>

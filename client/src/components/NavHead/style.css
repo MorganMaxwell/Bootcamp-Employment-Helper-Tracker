@@ -1,3 +1,7 @@
 #sign-out {
-	margin-left: 70%;
+	justify-self: flex-end;
+}
+
+#topNav {
+	margin-bottom: 15px;
 }
