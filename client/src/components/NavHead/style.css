@@ -1,7 +1,9 @@
-#sign-out {
-	justify-self: flex-end;
-}
-
-#topNav {
+.topNav {
 	margin-bottom: 15px;
+}
+a:visited, a:link, #test {
+	color: white;
+}
+a:hover, #test:hover {
+	color: slategray;
 }

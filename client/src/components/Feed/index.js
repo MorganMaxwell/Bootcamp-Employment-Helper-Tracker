@@ -1,34 +1,21 @@
 import React from 'react';
-// import './style.css';
-import {Card, Button, CardDeck, CardColumns} from 'react-bootstrap';
+import './style.css';
+import { Row, Card, Button} from 'react-bootstrap';
 
-export default function Feed(){
-    return(
-        <div>
-            <CardDeck>
-                <Card className="text-center">
-                <Card.Header>A Feed Post</Card.Header>
-                <Card.Body>
-                    <Card.Title>Title or Category</Card.Title>
-                    <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
+export default function Feed(props) {
+    return (
+        <div className="outer-div">
+            <Row>
+                <Card className="text-center text-muted" bg="dark" variant="dark">
+                    <Card.Header>{props.data}</Card.Header>
+                    <Card.Body className="text-left">
+                        <Card.Title>{props.title}</Card.Title>
+                        <Card.Text>{props.body}</Card.Text>
+                        <Button variant="primary">Like</Button>
+                    </Card.Body>
+                    <Card.Footer className="text-muted">{props.date}</Card.Footer>
                 </Card>
-                <Card className="text-center">
-                <Card.Header>A Feed Post</Card.Header>
-                <Card.Body>
-                    <Card.Title>Title or Category</Card.Title>
-                    <Card.Text>
-                    With supporting text below as a natural lead-in to additional content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
-                </Card>
-            </CardDeck>
+            </Row>
         </div>
-    )
-}
+    );
+};
