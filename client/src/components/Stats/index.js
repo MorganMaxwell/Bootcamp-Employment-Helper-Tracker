@@ -1,11 +1,13 @@
 import React from 'react';
 import {Card, Col, Row, CardTitle} from 'react-bootstrap';
+import PieChart from '../PieChart';
 
 export default function Stats(){
     return(
         <div>
             <h1>Stats</h1>
-            <Card className="card-stats">
+            <PieChart></PieChart>
+            {/* <Card className="card-stats">
                 <Card.Body>
                 <Row>
                     <Col md="4" xs="5">
@@ -21,7 +23,7 @@ export default function Stats(){
                     </Col>
                     </Row>
                 </Card.Body>
-            </Card>
+            </Card> */}
         </div>
     )
 }
