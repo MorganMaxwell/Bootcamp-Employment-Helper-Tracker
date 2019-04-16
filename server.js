@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 };
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/savedbooks", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/interviewsDB", { useNewUrlParser: true });
 
 app.use(routes);
 

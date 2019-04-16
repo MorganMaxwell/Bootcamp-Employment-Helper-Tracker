@@ -1,12 +1,15 @@
 import React from 'react';
-import {Nav} from 'react-bootstrap';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from "react-bootstrap/Nav";
+import "./style.css";
 
-export default function NavHead(){
-    return(
-        <div>
-            <Nav>
-                Hello navbar
-            </Nav>
-        </div>
-    )
-}
+export default function NavHead() {
+    return (
+        <Navbar id="topNav" bg="light" expand="lg">
+            <Navbar.Brand href="#home">$(Dev.Money)</Navbar.Brand>
+            <Nav.Link href="#">Dashboard</Nav.Link>
+            <Nav.Link href="#">Profile</Nav.Link>
+            <Nav.Link href="#" id="sign-out" >Sign Out</Nav.Link>
+        </Navbar>
+    );
+};

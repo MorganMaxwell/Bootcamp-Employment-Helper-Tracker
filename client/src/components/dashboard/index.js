@@ -13,9 +13,9 @@ class Dashboard extends Component {
             <NavHead></NavHead>
             <Container>
                 <Row>
-                    <Col lg="3"><Stats></Stats></Col>
-                    <Col lg="6"><Feed></Feed></Col>
-                    <Col lg="3"><MyJobs></MyJobs></Col>
+                    <Col sm="3"><Stats></Stats></Col>
+                    <Col sm="6"><Feed></Feed></Col>
+                    <Col sm="3"><MyJobs></MyJobs></Col>
                 </Row>
             </Container>
         </div>
