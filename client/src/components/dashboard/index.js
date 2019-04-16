@@ -11,13 +11,13 @@ class Dashboard extends Component {
     return (
         <div>
             <NavHead></NavHead>
-            <Container>
+            
                 <Row>
                     <Col sm="3"><Stats></Stats></Col>
                     <Col sm="6"><Feed></Feed></Col>
                     <Col sm="3"><MyJobs></MyJobs></Col>
                 </Row>
-            </Container>
+            
         </div>
     );
   }
