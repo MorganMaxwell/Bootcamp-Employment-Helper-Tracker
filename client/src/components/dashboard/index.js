@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'react-bootstrap';
+import { Col, Row, Container } from 'react-bootstrap';
 import NavHead from "../NavHead";
 import Stats from "../Stats";
 import Posts from "../Posts";
