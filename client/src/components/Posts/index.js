@@ -2,7 +2,7 @@ import React from 'react';
 import './style.css';
 import { Row, Card, Button} from 'react-bootstrap';
 
-export default function Feed(props) {
+export default function Posts(props) {
     return (
         <div className="outer-div">
             <Row>
