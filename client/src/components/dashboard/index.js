@@ -148,13 +148,23 @@ class Dashboard extends Component {
           <Row>
             <Col sm="3"><Stats></Stats></Col>
             <Col sm="6">
-              {data.map(post => {
-                return (<Feed
-                  title={post.title}
-                  body={post.body}
-                  date={post.date}
-                ></Feed>);
-              })}
+              <InfiniteScroll
+                pageStart={0}
+                // element={Posts}
+                loadMore={this.loadPosts.bind(this)}
+                hasMore={this.state.hasMorePosts/*boolean to tell it to quit loading */}
+                loader={<div className="loader" key={0}>Loading ...</div>}
+              >
+                {posts.map(post => {
+                  return (
+                    <Posts
+                      title={post.title}
+                      body={post.body}
+                      date={post.date}
+                    ></Posts>
+                  );
+                })}
+              </InfiniteScroll>
             </Col>
             <Col sm="3"><MyJobs></MyJobs></Col>
           </Row>
