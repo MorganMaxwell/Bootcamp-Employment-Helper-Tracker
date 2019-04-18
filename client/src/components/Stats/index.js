@@ -5,6 +5,7 @@ import LineChart from '../LineChart';
 import BarChart from '../BarChart';
 import './style.css'
 
+
 export default function Stats(){
     return(
         <div>
