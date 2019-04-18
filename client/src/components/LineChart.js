@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import { Pie } from 'react-chartjs-2';
+import {Line, Pie} from 'react-chartjs-2';
 
-
-class PieChart extends Component{
+class LineChart extends Component{
     constructor(props){
         super(props);
         this.state = {
@@ -25,3 +24,15 @@ class PieChart extends Component{
     }
 
     render(){
+        return(
+            <Line
+            data={this.state.chartData}
+            width={100}
+            height={50}
+            options={{ maintainAspectRatio: true }}
+            />
+        )
+    }
+}
+
+export default LineChart;
