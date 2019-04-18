@@ -22,7 +22,7 @@ export default function MyJobs(){
             <Col sm={8}>
             <Tab.Content>
                 <Tab.Pane eventKey="#link1">
-                Description of Job 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ipsum non quam suscipit suscipit. Nullam a ante commodo, faucibus magna id, eleifend ex. Proin mollis lorem neque. Quisque malesuada turpis id eros dignissim, a mollis tortor tristique.
+                Description of Job 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ipsum non quam suscipit.
                 </Tab.Pane>
                 <Tab.Pane eventKey="#link2">
                 Description of Job 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras quis ipsum non quam suscipit suscipit. Nullam a ante commodo, faucibus magna id, eleifend ex. Proin mollis lorem neque. Quisque malesuada turpis id eros dignissim, a mollis tortor tristique.
