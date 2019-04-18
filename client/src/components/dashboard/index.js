@@ -34,7 +34,7 @@ class Dashboard extends Component {
     return (
       <div>
         <NavHead></NavHead>
-        <Container>
+        <Container fluid={true}>
           <Row>
             <Col sm="3"><Stats></Stats></Col>
             <Col sm="6">
@@ -48,7 +48,7 @@ class Dashboard extends Component {
             </Col>
             <Col sm="3"><MyJobs></MyJobs></Col>
           </Row>
-        </Container>
+          </Container>
       </div>
     );
   };

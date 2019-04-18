@@ -1,29 +1,36 @@
 import React from 'react';
 import {Card, Col, Row, CardTitle} from 'react-bootstrap';
 import PieChart from '../PieChart';
+import LineChart from '../LineChart';
+import BarChart from '../BarChart';
+import './style.css'
+
 
 export default function Stats(){
     return(
         <div>
             <h1>Stats</h1>
-            <PieChart></PieChart>
-            {/* <Card className="card-stats">
+            <Card className="card-stats">
                 <Card.Body>
                 <Row>
-                    <Col md="4" xs="5">
-                    <div className="icon-big text-center icon-warning">
-                    </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                    <div className="numbers">
-                        <Card.Title tag="p">3,237</Card.Title>
-                        <p />
-                        <p className="card-category">Awards</p>
-                    </div>
-                    </Col>
-                    </Row>
+                    <BarChart></BarChart>
+                </Row>
                 </Card.Body>
-            </Card> */}
+            </Card>
+            <Card className="card-stats">
+                <Card.Body>
+                <Row>
+                    <LineChart></LineChart>
+                </Row>
+                </Card.Body>
+            </Card>
+            <Card className="card-stats">
+                <Card.Body>
+                <Row>
+                    <PieChart></PieChart>
+                </Row>
+                </Card.Body>
+            </Card>
         </div>
     )
 }
