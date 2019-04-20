@@ -1,4 +1,4 @@
-db.devmoneyDB.insertMany([
+db.jobs.insertMany([
     {
         "position": "Junior Dev",
         "level": "Junior",

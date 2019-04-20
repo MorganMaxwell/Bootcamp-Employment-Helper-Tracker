@@ -11,3 +11,5 @@ router.route("/:id")
     .get(jobController.findById)
     .put(jobController.update)
     .delete(jobController.remove);
+
+module.exports = router;
