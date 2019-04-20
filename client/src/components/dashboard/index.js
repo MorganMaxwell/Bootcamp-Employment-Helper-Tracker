@@ -139,29 +139,29 @@ class Dashboard extends Component {
     };
 
 
-    // axios.get('/api/post/', {
-    //   // GET request data
-    // })
-    //   // if we get empty array, error, null, etc, then change hasmoreposts to false
-    //   .then(function (response) {
-    //     // test for data, if there is some, then do stuff
-    //     if (response.data) {
-    //       // this is my workaround to not directly affect this.state, if there's a better way I want to use it.
-    //       // make a temp array
-    //       let temp = this.state.posts;
-    //       // push response data into temp
-    //       response.map(post => { return temp.push(post) });
-    //       // assign state equal to temp array
-    //       this.setState({ posts: temp });
-    //     }
-    //     // if there isn't data, then quit trying to load posts
-    //     else {
-    //       this.setState({ hasMorePosts: false });
-    //     };
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    axios.get('/api/post/', {
+      // GET request data
+    })
+      // if we get empty array, error, null, etc, then change hasmoreposts to false
+      .then(function (response) {
+        // test for data, if there is some, then do stuff
+        if (response.data) {
+          // this is my workaround to not directly affect this.state, if there's a better way I want to use it.
+          // make a temp array
+          let temp = this.state.posts;
+          // push response data into temp
+          response.map(post => { return temp.push(post) });
+          // assign state equal to temp array
+          this.setState({ posts: temp });
+        }
+        // if there isn't data, then quit trying to load posts
+        else {
+          this.setState({ hasMorePosts: false });
+        };
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   getJobs = () => {
