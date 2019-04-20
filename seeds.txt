@@ -1,0 +1,20 @@
+db.devmoneyDB.insertMany([
+    {
+        "position": "Junior Dev",
+        "level": "Junior",
+        "salary": "50000",
+        "isJob": false
+    },
+    {
+        "position": "Junior Dev",
+        "level": "Junior",
+        "salary": 55000,
+        "isJob": true
+    },
+    {
+        "position": "Senior Dev",
+        "level": "Senior",
+        "salary": 110000,
+        "isJob": true
+    }
+])
