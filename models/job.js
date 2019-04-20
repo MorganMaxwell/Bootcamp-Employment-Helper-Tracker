@@ -4,9 +4,10 @@ const Schema = mongoose.Schema;
 const jobSchema = new Schema({
   position: { type: String, required: true },
   level: { type: String, required: true },
-  salary: { type: String, required: false },
+  salary: { type: Number, required: false },
+  isJob: { type: Boolean, required: true}
 });
 
-const User = mongoose.model("Post", jobSchema);
+const Job = mongoose.model("Job", jobSchema);
 
 module.exports = Job;

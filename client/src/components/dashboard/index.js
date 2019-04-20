@@ -67,12 +67,10 @@ const data = [
     title: "test2",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
     date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
+  }
+];
+
+const data2 = [
   {
     title: "test",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
@@ -104,42 +102,83 @@ const data = [
     date: "date"
   },
   {
-    title: "test3",
+    title: "test",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
     date: "date"
-  },
-]
+  }
+];
+
+
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
-      nextGroupOfPosts: [],
-      hasMorePosts: true
+      hasMorePosts: true,
+      myJobs: []
     };
   };
-  // use state to hold like 50 posts, display like 10, and do some fancy scrolling stuff to load more?
-  componentDidMount() {
-    axios.get('/dash/posts/', {
 
+  loadPosts() {
+    // this block will be deleted once back end is connected
+    console.log(this.state.posts);
+    if (this.state.posts.length === 0) {
+      console.log(this.state.hasMorePosts);
+      this.setState({ posts: data });
+    }
+    else if (this.state.posts.length === 12) {
+      let temp = this.state.posts;
+      console.log(this.state.hasMorePosts);
+      data2.map(post => { return temp.push(post) });
+      this.setState({ posts: temp });
+    }
+    else if (this.state.posts.length === 19) {
+      console.log(this.state.hasMorePosts);
+      this.setState({ hasMorePosts: false });
+    };
+
+
+    axios.get('/api/post/', {
+      // GET request data
     })
-      // if no more posts, pass a boolean to say so
+      // if we get empty array, error, null, etc, then change hasmoreposts to false
       .then(function (response) {
-        this.setState({
-          posts: response
-        });
+        // test for data, if there is some, then do stuff
+        if (response.data) {
+          // this is my workaround to not directly affect this.state, if there's a better way I want to use it.
+          // make a temp array
+          let temp = this.state.posts;
+          // push response data into temp
+          response.map(post => { return temp.push(post) });
+          // assign state equal to temp array
+          this.setState({ posts: temp });
+        }
+        // if there isn't data, then quit trying to load posts
+        else {
+          this.setState({ hasMorePosts: false });
+        };
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
-  loadPosts(page) {
-  };
+  getJobs = () => {
+    axios.get('/api/job/')
+    .then(res => {
+      console.log(res);
+    })
+  }
+
+  componentDidMount() {
+    this.getJobs();
+  }
 
   render() {
-    let posts = data.slice(0, 9);
+    // infinite scroll demo does this, idk if there's a reason we can't directly use state
+    let posts = [];
+    this.state.posts.map(post => { return posts.push(post)});
 
     return (
       <div>
@@ -168,7 +207,7 @@ class Dashboard extends Component {
             </Col>
             <Col sm="3"><MyJobs></MyJobs></Col>
           </Row>
-          </Container>
+        </Container>
       </div>
     );
   };
