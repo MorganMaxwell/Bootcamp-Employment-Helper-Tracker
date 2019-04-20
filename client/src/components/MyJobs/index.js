@@ -18,8 +18,8 @@ export default function MyJobs() {
           </Accordion.Collapse>
         </Card>
         <Card>
-          <Accordion.Toggle as={Card.Header} eventKey="1">
-            Job 2!
+          <Accordion.Toggle as={Card.Header} eventKey="1" className='job-accordion'>
+            <span className="job-click">Job 2!</span>
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="1">
             <Card.Body>Hello! I'm another body</Card.Body>

@@ -25,3 +25,15 @@ class PieChart extends Component{
     }
 
     render(){
+        return(
+            <Pie
+            data={this.state.chartData}
+            width={100}
+            height={50}
+            options={{ maintainAspectRatio: true }}
+            />
+        )
+    }
+}
+
+export default PieChart;
