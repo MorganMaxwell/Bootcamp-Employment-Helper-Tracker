@@ -138,7 +138,7 @@ class Dashboard extends Component {
     };
 
 
-    axios.get('/dash/posts/', {
+    axios.get('/api/post/', {
       // GET request data
     })
       // if we get empty array, error, null, etc, then change hasmoreposts to false
