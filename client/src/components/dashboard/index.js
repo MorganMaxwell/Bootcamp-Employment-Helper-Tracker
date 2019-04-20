@@ -67,12 +67,10 @@ const data = [
     title: "test2",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
     date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
+  }
+];
+
+const data2 = [
   {
     title: "test",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
@@ -104,49 +102,67 @@ const data = [
     date: "date"
   },
   {
-    title: "test3",
+    title: "test",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
     date: "date"
-  },
-]
+  }
+];
+
+
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
       posts: [],
-      nextGroupOfPosts: [],
       hasMorePosts: true
     };
   };
-  // use state to hold like 50 posts, display like 10, and do some fancy scrolling stuff to load more?
-  componentDidMount() {
-    axios.get('/dash/posts/', {
 
-    })
-      // if no more posts, pass a boolean to say so
-      .then(function (response) {
-        this.setState({
-          posts: response
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  loadPosts() {
+    console.log(this.state.posts);
+    if (this.state.posts.length === 0) {
+      console.log(this.state.hasMorePosts);
+      this.setState({ posts: data });
+    }
+    else if (this.state.posts.length === 12) {
+      let temp = this.state.posts;
+      console.log(this.state.hasMorePosts);
+      data2.map(post => { return temp.push(post) });
+      this.setState({ posts: temp });
+    }
+    else if (this.state.posts.length === 19) {
+      console.log(this.state.hasMorePosts);
+      this.setState({ hasMorePosts: false });
+    };
+    // axios.get('/dash/posts/', {
 
-  loadPosts(page) {
+    // })
+    //   // if no more posts, pass a boolean to say so
+    //   .then(function (response) {
+    //     if (response.endSim) {
+    //       this.setState({ hasMorePosts: false });
+    //     };
+    //     let temp = this.state.posts;
+    //     response.map(post => { return temp.push(post) });
+    //     this.setState({ posts: temp });
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   };
 
   render() {
-    let posts = data.slice(0, 9);
+
+    let posts = [];
+    this.state.posts.map(post => { return posts.push(post)});
 
     return (
       <div>
         <NavHead></NavHead>
         <Container fluid={true}>
           <Row>
-            <Col sm="3"><Stats></Stats></Col>
+            <Col sm="3">{/*<Stats></Stats>*/}</Col>
             <Col sm="6">
               <InfiniteScroll
                 pageStart={0}
@@ -166,9 +182,9 @@ class Dashboard extends Component {
                 })}
               </InfiniteScroll>
             </Col>
-            <Col sm="3"><MyJobs></MyJobs></Col>
+            <Col sm="3">{/*<MyJobs></MyJobs>*/}</Col>
           </Row>
-          </Container>
+        </Container>
       </div>
     );
   };
