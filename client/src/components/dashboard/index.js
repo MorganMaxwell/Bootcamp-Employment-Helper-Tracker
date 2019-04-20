@@ -120,6 +120,7 @@ class Dashboard extends Component {
   };
 
   loadPosts() {
+    // this block will be deleted once back end is connected
     console.log(this.state.posts);
     if (this.state.posts.length === 0) {
       console.log(this.state.hasMorePosts);
@@ -135,25 +136,35 @@ class Dashboard extends Component {
       console.log(this.state.hasMorePosts);
       this.setState({ hasMorePosts: false });
     };
-    // axios.get('/dash/posts/', {
 
-    // })
-    //   // if no more posts, pass a boolean to say so
-    //   .then(function (response) {
-    //     if (response.endSim) {
-    //       this.setState({ hasMorePosts: false });
-    //     };
-    //     let temp = this.state.posts;
-    //     response.map(post => { return temp.push(post) });
-    //     this.setState({ posts: temp });
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+
+    axios.get('/dash/posts/', {
+      // GET request data
+    })
+      // if we get empty array, error, null, etc, then change hasmoreposts to false
+      .then(function (response) {
+        // test for data, if there is some, then do stuff
+        if (response.data) {
+          // this is my workaround to not directly affect this.state, if there's a better way I want to use it.
+          // make a temp array
+          let temp = this.state.posts;
+          // push response data into temp
+          response.map(post => { return temp.push(post) });
+          // assign state equal to temp array
+          this.setState({ posts: temp });
+        }
+        // if there isn't data, then quit trying to load posts
+        else {
+          this.setState({ hasMorePosts: false });
+        };
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   render() {
-
+    // infinite scroll demo does this, idk if there's a reason we can't directly use state
     let posts = [];
     this.state.posts.map(post => { return posts.push(post)});
 
