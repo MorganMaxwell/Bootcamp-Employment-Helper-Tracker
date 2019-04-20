@@ -7,6 +7,6 @@ const userSchema = new Schema({
   jobs: [{ type: Schema.Types.ObjectId, ref: "job", required: false }],
 });
 
-const User = mongoose.model("Post", userSchema);
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

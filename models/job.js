@@ -8,6 +8,6 @@ const jobSchema = new Schema({
   isJob: { type: Boolean, required: true}
 });
 
-const User = mongoose.model("Post", jobSchema);
+const Job = mongoose.model("Job", jobSchema);
 
 module.exports = Job;
