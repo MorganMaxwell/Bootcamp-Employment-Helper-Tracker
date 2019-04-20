@@ -162,7 +162,7 @@ class Dashboard extends Component {
         <NavHead></NavHead>
         <Container fluid={true}>
           <Row>
-            <Col sm="3">{/*<Stats></Stats>*/}</Col>
+            <Col sm="3"><Stats></Stats></Col>
             <Col sm="6">
               <InfiniteScroll
                 pageStart={0}
@@ -182,7 +182,7 @@ class Dashboard extends Component {
                 })}
               </InfiniteScroll>
             </Col>
-            <Col sm="3">{/*<MyJobs></MyJobs>*/}</Col>
+            <Col sm="3"><MyJobs></MyJobs></Col>
           </Row>
         </Container>
       </div>

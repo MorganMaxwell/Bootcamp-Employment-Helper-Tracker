@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, ListGroup, Tab, Accordion } from "react-bootstrap";
+import { Card, Row, Col, ListGroup, Tab, Accordion, Button } from "react-bootstrap";
 import './style.css';
 
 export default function MyJobs() {
@@ -7,6 +7,7 @@ export default function MyJobs() {
     <div>
     <h1>My Jobs</h1>
     <Card>
+    <Card.Header><Button>Add new job</Button></Card.Header>
       <Accordion
       defaultActiveKey="0">
         <Card>
