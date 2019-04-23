@@ -3,7 +3,8 @@
 const router = require("express").Router();
 const postController = require("../../controllers/postCtrl");
 
-router.route("/")
+router.route("/test/:page")
+    // sends 10 posts
     .get(postController.findAll)
     .post(postController.create);
 

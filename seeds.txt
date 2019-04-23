@@ -18,3 +18,26 @@ db.Job.insertMany([
         "isJob": true
     }
 ])
+
+db.Post.insertMany([
+    {
+        "title": "Got a Job!",
+        "body": "Commodo id enim aute sit ullamco reprehenderit est ea enim Lorem exercitation nostrud.",
+        "category": "Jobs"
+    },
+    {
+        "title": "Got a Job2!",
+        "body": "Commodo id enim aute sit ullamco reprehenderit est ea enim Lorem exercitation nostrud.",
+        "category": "Jobs"
+    },
+    {
+        "title": "Got a Job3!",
+        "body": "Commodo id enim aute sit ullamco reprehenderit est ea enim Lorem exercitation nostrud.",
+        "category": "Jobs"
+    },
+    {
+        "title": "Got a Job4!",
+        "body": "Commodo id enim aute sit ullamco reprehenderit est ea enim Lorem exercitation nostrud.",
+        "category": "Jobs"
+    },
+])

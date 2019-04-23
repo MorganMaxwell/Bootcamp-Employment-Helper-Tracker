@@ -2,7 +2,6 @@ const db = require("../models");
 
 module.exports = {
   findAll: function(req, res) {
-    console.log("Here I am in jobs findAll")
     db.Job
       .find({})
       .sort({ date: -1 })

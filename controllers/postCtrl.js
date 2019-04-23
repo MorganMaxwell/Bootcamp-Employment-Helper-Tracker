@@ -3,9 +3,11 @@ const db = require("../models");
 // Defining methods for the PostsController
 module.exports = {
   findAll: function(req, res) {
+    let skip = req.params.page + 0;
     db.Post
-      .find(req.query)
-      .sort({ date: -1 })
+      .find({})
+      .limit(10)
+      .skip(parseInt(skip))
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

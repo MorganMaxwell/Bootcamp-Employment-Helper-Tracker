@@ -71,6 +71,7 @@ const data = [
 ];
 
 const data2 = [
+
   {
     title: "test",
     body: "Reprehenderit sint deserunt ut occaecat labore.",
@@ -108,51 +109,37 @@ const data2 = [
   }
 ];
 
-
-
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-      hasMorePosts: true,
-      myJobs: []
-    };
+  state = {
+    posts: [],
+    hasMorePosts: true,
+    page: 0,
+    myJobs: []
   };
 
   loadPosts() {
-    // this block will be deleted once back end is connected
-    console.log(this.state.posts);
-    if (this.state.posts.length === 0) {
-      console.log(this.state.hasMorePosts);
-      this.setState({ posts: data });
-    }
-    else if (this.state.posts.length === 12) {
-      let temp = this.state.posts;
-      console.log(this.state.hasMorePosts);
-      data2.map(post => { return temp.push(post) });
-      this.setState({ posts: temp });
-    }
-    else if (this.state.posts.length === 19) {
-      console.log(this.state.hasMorePosts);
-      this.setState({ hasMorePosts: false });
-    };
-
-
-    axios.get('/api/post/', {
+    let url = `/api/post/test/${this.state.page}`;
+    axios({
+      method: "get",
+      url: url,
       // GET request data
     })
       // if we get empty array, error, null, etc, then change hasmoreposts to false
       .then(function (response) {
+
         // test for data, if there is some, then do stuff
         if (response.data) {
-          // this is my workaround to not directly affect this.state, if there's a better way I want to use it.
-          // make a temp array
+
           let temp = this.state.posts;
-          // push response data into temp
-          response.map(post => { return temp.push(post) });
-          // assign state equal to temp array
-          this.setState({ posts: temp });
+
+          response.data.map(post => { return temp.push(post) });
+
+          this.setState({
+            posts: temp,
+            pageNumber: this.state.pageNumber + 1
+          });
+          console.log(this.state.posts);
+
         }
         // if there isn't data, then quit trying to load posts
         else {
@@ -166,9 +153,9 @@ class Dashboard extends Component {
 
   getJobs = () => {
     axios.get('/api/job/')
-    .then(res => {
-      console.log(res);
-    })
+      .then(res => {
+        // console.log(res);
+      })
   }
 
   componentDidMount() {
@@ -178,7 +165,7 @@ class Dashboard extends Component {
   render() {
     // infinite scroll demo does this, idk if there's a reason we can't directly use state
     let posts = [];
-    this.state.posts.map(post => { return posts.push(post)});
+    this.state.posts.map(post => { return posts.push(post) });
 
     return (
       <div>
