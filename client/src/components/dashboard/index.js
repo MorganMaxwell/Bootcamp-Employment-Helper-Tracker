@@ -117,17 +117,13 @@ class Dashboard extends Component {
     myJobs: []
   };
 
-  loadPosts = () => {    
+  loadPosts = () => {
     let url = `/api/post/test/${this.state.page}`;
     axios({
       method: "get",
       url: url,
-      // GET request data
     })
-      // if we get empty array, error, null, etc, then change hasmoreposts to false
       .then(response => {
-
-        // test for data, if there is some, then do stuff
         if (response.data) {
 
           let temp = this.state.posts;
@@ -138,10 +134,11 @@ class Dashboard extends Component {
             posts: temp,
             page: this.state.page + 1
           });
-          console.log(this.state.page);
 
+          if (response.data.length < 10) {
+            this.setState({ hasMorePosts: false });
+          };
         }
-        // if there isn't data, then quit trying to load posts
         else {
           this.setState({ hasMorePosts: false });
         };

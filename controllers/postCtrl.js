@@ -4,7 +4,6 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     let skip = req.params.page + 0;
-    console.log(skip)
     db.Post
       .find({})
       .skip(parseInt(skip))
