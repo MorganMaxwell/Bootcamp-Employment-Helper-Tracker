@@ -4,10 +4,11 @@ const db = require("../models");
 module.exports = {
   findAll: function(req, res) {
     let skip = req.params.page + 0;
+    console.log(skip)
     db.Post
       .find({})
-      .limit(10)
       .skip(parseInt(skip))
+      .limit(10)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
