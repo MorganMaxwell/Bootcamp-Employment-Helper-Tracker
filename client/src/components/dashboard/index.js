@@ -2,112 +2,12 @@ import React, { Component } from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
 import NavHead from "../NavHead";
 import Stats from "../Stats";
+import Feed from "../Feed";
 import Posts from "../Posts";
+import InfiniteScroll from 'react-infinite-scroller';
 import MyJobs from "../MyJobs";
 import axios from 'axios';
-import InfiniteScroll from 'react-infinite-scroller';
-
-const data = [
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test2",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test2",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test2",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test2",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  }
-];
-
-const data2 = [
-
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test2",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test2",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test3",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  },
-  {
-    title: "test",
-    body: "Reprehenderit sint deserunt ut occaecat labore.",
-    date: "date"
-  }
-];
+import CreatePost from '../CreatePost';
 
 class Dashboard extends Component {
   state = {
@@ -125,16 +25,12 @@ class Dashboard extends Component {
     })
       .then(response => {
         if (response.data) {
-
           let temp = this.state.posts;
-
           response.data.map(post => { return temp.push(post) });
-
           this.setState({
             posts: temp,
             page: this.state.page + 1
           });
-
           if (response.data.length < 10) {
             this.setState({ hasMorePosts: false });
           };
@@ -152,12 +48,12 @@ class Dashboard extends Component {
     axios.get('/api/job/')
       .then(res => {
         // console.log(res);
-      })
-  }
+      });
+  };
 
   componentDidMount = () => {
     this.getJobs();
-  }
+  };
 
   render() {
     // infinite scroll demo does this, idk if there's a reason we can't directly use state
@@ -171,23 +67,24 @@ class Dashboard extends Component {
           <Row>
             <Col sm="3"><Stats></Stats></Col>
             <Col sm="6">
-              <InfiniteScroll
-                pageStart={0}
-                // element={Posts}
-                loadMore={this.loadPosts.bind(this)}
-                hasMore={this.state.hasMorePosts/*boolean to tell it to quit loading */}
-                loader={<div className="loader" key={0}>Loading ...</div>}
-              >
-                {posts.map(post => {
-                  return (
-                    <Posts
-                      title={post.title}
-                      body={post.body}
-                      date={post.date}
-                    ></Posts>
-                  );
-                })}
-              </InfiniteScroll>
+              <Feed>
+                <InfiniteScroll
+                  pageStart={0}
+                  loadMore={this.loadPosts.bind(this)}
+                  hasMore={this.state.hasMorePosts}
+                  loader={<div className="loader" key={0}>Loading ...</div>}
+                >
+                  {posts.map(post => {
+                    return (
+                      <Posts
+                        title={post.title}
+                        body={post.body}
+                        date={post.date}
+                      ></Posts>
+                    );
+                  })}
+                </InfiniteScroll>
+              </Feed>
             </Col>
             <Col sm="3"><MyJobs></MyJobs></Col>
           </Row>
