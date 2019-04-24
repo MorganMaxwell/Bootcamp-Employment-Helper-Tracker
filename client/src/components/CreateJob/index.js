@@ -15,7 +15,7 @@ class CreateJob extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
+        alert('Level: ' + this.state.level + "\nPos: " + this.state.position);
         event.preventDefault();
       }
 
@@ -33,10 +33,11 @@ class CreateJob extends React.Component {
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>
+            <form onSubmit={this.handleSubmit}>
             <Form>
             <Form.Group controlId="exampleForm.levelSelect">
                 <Form.Label>Level</Form.Label>
-                <Form.Control as="select">
+                <Form.Control as="select" onChange={this.handleChange}>
                 <option>Internship</option>
                 <option>Junior</option>
                 <option>Mid</option>
@@ -46,7 +47,7 @@ class CreateJob extends React.Component {
             </Form.Group>
             <Form.Group controlId="exampleForm.positionSelect">
                 <Form.Label>Position</Form.Label>
-                <Form.Control as="select">
+                <Form.Control as="select" onChange={this.handleChange}>
                 <option>Front End</option>
                 <option>Back End</option>
                 <option>Full-Stack</option>
@@ -55,9 +56,10 @@ class CreateJob extends React.Component {
                 </Form.Control>
             </Form.Group>
             </Form>
+            </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button onClick={this.props.onHide}>Close</Button>
+            <Button type="submit">Submit</Button>
           </Modal.Footer>
         </Modal>
       );
