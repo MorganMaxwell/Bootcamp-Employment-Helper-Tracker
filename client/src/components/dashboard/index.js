@@ -55,12 +55,12 @@ class Dashboard extends Component {
   // end of initial data load group
 
   // post requests
-  createPost = () => {
-    let data;
+  createPost = (post) => {
+    
     axios({
       method: "post",
       url: "/api/post/",
-      data: data
+      data: post
     })
       .catch(err => {
         console.log(err);
@@ -79,7 +79,9 @@ class Dashboard extends Component {
           <Row>
             <Col sm="3"><Stats></Stats></Col>
             <Col sm="6">
-              <Feed>
+              <Feed
+                createPost={this.createPost}
+              >
                 <InfiniteScroll
                   pageStart={0}
                   loadMore={this.loadPosts.bind(this)}

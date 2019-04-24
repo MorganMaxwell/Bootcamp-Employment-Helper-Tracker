@@ -31,7 +31,11 @@ class CreatePost extends Component {
 
     filledOutCheck = () => {
         if (this.state.category !== "Category" && this.state.title.length !== 0 && this.state.bodyChars > 0 && this.state.body.length !== 0) {
-            this.props.onHide();
+            this.props.onHide({
+                title: this.state.title,
+                body: this.state.body,
+                category: this.state.category
+            });
             this.setState({
                 newPost: "New Post",
                 category: "Category",
