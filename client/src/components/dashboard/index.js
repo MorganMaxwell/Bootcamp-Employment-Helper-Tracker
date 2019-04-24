@@ -61,10 +61,8 @@ class Dashboard extends Component {
       method: "post",
       url: "/api/post/",
       data: post
-    })
-      .catch(err => {
-        console.log(err);
-      });
+    }).then(() => this.loadPosts())
+      .catch(err => console.log(err));
   };
   // end of post requests
 
