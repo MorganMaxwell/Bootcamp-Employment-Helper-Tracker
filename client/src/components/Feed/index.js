@@ -6,11 +6,41 @@ class Feed extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { modalShow: false };
+        this.state = { 
+            modalShow: false,
+            category: "Category",
+            title: "",
+            body: "",
+            bodyChars: 140
+        };
+    };
+
+    categoryPick = event => {
+        this.setState({ category: event.target.id});
+    };
+
+    charCount = event => {
+        const characters = event.target.value;
+        const charLeft = 140 - characters.length;
+        this.setState({ 
+            bodyChars: charLeft,
+            body: characters
+        });
+    };
+
+    title = event => {
+        this.setState({ title: event.target.value });
     };
 
     render() {
-        let modalClose = () => this.setState({ modalShow: false });
+        let modalClose = () => {
+            if (true) {
+                this.setState({ modalShow: false });
+            }
+            else {
+                // change everything not filled in red?
+            };
+        };
 
         return (
             <div>
@@ -23,6 +53,10 @@ class Feed extends Component {
                 <CreatePost
                     show={this.state.modalShow}
                     onHide={modalClose}
+                    state={this.state}
+                    categorypick={this.categoryPick}
+                    charcount={this.charCount}
+                    title={this.title}
                 />
                 {this.props.children}
             </div>

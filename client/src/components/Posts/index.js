@@ -6,7 +6,7 @@ export default function Posts(props) {
     return (
         <div className="outer-div">
             <Row>
-                <Card className="text-center text-muted" bg="dark" variant="dark">
+                <Card className="text-center text-muted" bg="dark" variant="dark" id={props.title}>
                     <Card.Header>{props.data}</Card.Header>
                     <Card.Body className="text-left">
                         <Card.Title>{props.title}</Card.Title>

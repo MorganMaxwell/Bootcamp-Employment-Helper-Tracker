@@ -77,6 +77,7 @@ class Dashboard extends Component {
                   {posts.map(post => {
                     return (
                       <Posts
+                        key={post.title}
                         title={post.title}
                         body={post.body}
                         date={post.date}
