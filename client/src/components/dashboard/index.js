@@ -7,7 +7,6 @@ import Posts from "../Posts";
 import InfiniteScroll from 'react-infinite-scroller';
 import MyJobs from "../MyJobs";
 import axios from 'axios';
-import CreatePost from '../CreatePost';
 
 class Dashboard extends Component {
   state = {
@@ -17,6 +16,7 @@ class Dashboard extends Component {
     myJobs: []
   };
 
+  // initial data load group
   loadPosts = () => {
     let url = `/api/post/test/${this.state.page}`;
     axios({
@@ -43,20 +43,32 @@ class Dashboard extends Component {
         console.log(error);
       });
   };
-
   getJobs = () => {
     axios.get('/api/job/')
       .then(res => {
         // console.log(res);
       });
   };
-
   componentDidMount = () => {
     this.getJobs();
   };
+  // end of initial data load group
+
+  // post requests
+  createPost = () => {
+    let data;
+    axios({
+      method: "post",
+      url: "/api/post/",
+      data: data
+    })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+  // end of post requests
 
   render() {
-    // infinite scroll demo does this, idk if there's a reason we can't directly use state
     let posts = [];
     this.state.posts.map(post => { return posts.push(post) });
 
