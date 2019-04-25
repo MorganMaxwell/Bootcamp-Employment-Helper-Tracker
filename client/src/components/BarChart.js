@@ -5,6 +5,12 @@ class PieChart extends Component{
     constructor(props){
         super(props);
         this.state = {
+            chartData: {}
+        }
+    }
+
+    getLevels = () => {
+        this.setState({
             chartData: {
                 labels: ["Internship", "Junior", "Mid", "Senior", "Team Lead"],
                 datasets:[{
@@ -23,7 +29,7 @@ class PieChart extends Component{
                     'rgba(255, 162, 132, 0.6)'
                 ]
             }
-        }
+        })
     }
 
     render(){
