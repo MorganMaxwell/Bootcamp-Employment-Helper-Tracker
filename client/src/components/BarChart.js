@@ -44,7 +44,6 @@ class PieChart extends Component{
                     default:
                         break;
                 }
-                
             }
 
         this.setState({
