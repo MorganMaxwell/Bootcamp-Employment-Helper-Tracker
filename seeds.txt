@@ -1,4 +1,4 @@
-db.Job.insertMany([
+db.jobs.insertMany([
     {
         "position": "Junior Dev",
         "level": "Junior",
@@ -19,7 +19,7 @@ db.Job.insertMany([
     }
 ])
 
-db.Post.insertMany([
+db.posts.insertMany([
     {
         "title": "Got a Job!",
         "body": "Commodo id enim aute sit ullamco reprehenderit est ea enim Lorem exercitation nostrud.",
