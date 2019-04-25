@@ -35,7 +35,18 @@ module.exports = {
   },
   findByLevel: function(req, res) {
     db.Job
-      .count({level: req.params.jobLevel})
+      .aggregate(
+        {
+          $group: {_id: '$level', total: {$sum: 1}}
+        }
+      , function(err, result) {
+        if(err){
+          console.log(err);
+        } else {
+          res.json(result)
+        }
+      }
+      )
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }

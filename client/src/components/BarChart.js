@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Bar} from 'react-chartjs-2';
+import axios from 'axios';
 
 class PieChart extends Component{
     constructor(props){
@@ -9,7 +10,15 @@ class PieChart extends Component{
         }
     }
 
+    componentDidMount(){
+        this.getLevels();
+    }
+
     getLevels = () => {
+        axios.get('/api/job/levels')
+        .then(res=> {
+            console.log(res.data);
+
         this.setState({
             chartData: {
                 labels: ["Internship", "Junior", "Mid", "Senior", "Team Lead"],
@@ -30,6 +39,7 @@ class PieChart extends Component{
                 ]
             }
         })
+    })
     }
 
     render(){
