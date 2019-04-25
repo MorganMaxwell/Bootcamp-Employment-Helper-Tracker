@@ -6,7 +6,7 @@ import BarChart from '../BarChart';
 import './style.css'
 
 
-export default function Stats(){
+export default function Stats(props){
     return(
         <div>
             <h1>Stats</h1>
@@ -20,7 +20,7 @@ export default function Stats(){
             <Card className="card-stats">
                 <Card.Body>
                 <Row>
-                    <LineChart></LineChart>
+                    <LineChart/>
                 </Row>
                 </Card.Body>
             </Card>

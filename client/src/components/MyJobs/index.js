@@ -1,13 +1,29 @@
 import React from "react";
-import { Card, Row, Col, ListGroup, Tab, Accordion, Button } from "react-bootstrap";
+import { Card, Accordion, Button } from "react-bootstrap";
+import CreateJob from '../CreateJob';
 import './style.css';
 
-export default function MyJobs() {
+export default class MyJobs extends React.Component {
+  constructor(props){
+    super(props);
+
+    this.state = {modalShow: false};
+  }
+
+  render(){
+    let modalClose = () => this.setState({ modalShow: false });
+
   return (
     <div>
     <h1>My Jobs</h1>
     <Card>
-    <Card.Header><Button>Add new job</Button></Card.Header>
+    <Card.Header>
+      <Button
+        onClick={() => this.setState({modalShow: true})}
+      >
+      Add new job
+      </Button>
+    </Card.Header>
       <Accordion
       defaultActiveKey="0">
         <Card>
@@ -36,6 +52,13 @@ export default function MyJobs() {
         </Card>
       </Accordion>
     </Card>
+
+    <CreateJob
+      show={this.state.modalShow}
+      onHide={modalClose}
+    />
     </div>
   );
+      
+}
 }

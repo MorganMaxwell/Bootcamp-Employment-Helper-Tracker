@@ -1,17 +1,63 @@
 import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
+import axios from 'axios';
 
 class PieChart extends Component{
     constructor(props){
         super(props);
         this.state = {
+            chartData: {}
+        }
+    }
+
+    componentDidMount(){
+        this.getLevels();
+    }
+
+    getLevels = () => {
+        axios.get('/api/job/')
+        .then(res=> {
+            console.log(res.data);
+            var intern = 0;
+            var jr = 0;
+            var mid = 0;
+            var sr = 0;
+            var lead = 0;
+            for (let i = 0; i < res.data.length; i++) {
+                switch (res.data[i].level) {
+                    case "Internship":
+                        intern++;
+                        break;
+                    case "Junior":
+                        jr++;
+                        break;
+                    case "Mid":
+                        mid++;
+                        break;
+                    case "Senior":
+                        sr++;
+                        break;
+                    case "Team Lead":
+                        lead++
+                        break;
+                
+                    default:
+                        break;
+                }
+                
+            }
+
+        this.setState({
             chartData: {
-                labels: ["Front-end", "Back-end"],
+                labels: ["Internship", "Junior", "Mid", "Senior", "Team Lead"],
                 datasets:[{
                     label: 'Number of jobs',
                     data:[
-                        3,
-                        4
+                        intern, //intern
+                        jr, //jr
+                        mid, //mid
+                        sr, //sr
+                        lead //lead
                     ]
                 }
                 ],
@@ -20,7 +66,8 @@ class PieChart extends Component{
                     'rgba(255, 162, 132, 0.6)'
                 ]
             }
-        }
+        })
+    })
     }
 
     render(){

@@ -4,8 +4,11 @@ const router = require("express").Router();
 const postController = require("../../controllers/postCtrl");
 
 router.route("/")
-    .get(postController.findAll)
     .post(postController.create);
+    
+router.route("/test/:page")
+    // sends 10 posts
+    .get(postController.findAll);
 
 router.route("/:id")
     .get(postController.findById)
