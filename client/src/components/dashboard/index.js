@@ -13,7 +13,8 @@ class Dashboard extends Component {
     posts: [],
     hasMorePosts: true,
     page: 0,
-    myJobs: []
+    myJobs: [],
+    allJobs: []
   };
 
   // initial data load group
@@ -46,7 +47,9 @@ class Dashboard extends Component {
   getJobs = () => {
     axios.get('/api/job/')
       .then(res => {
-        // console.log(res);
+        console.log(res.data);
+        
+        this.setState({allJobs: res.data})
       });
   };
   componentDidMount = () => {
@@ -75,7 +78,11 @@ class Dashboard extends Component {
         <NavHead></NavHead>
         <Container fluid={true}>
           <Row>
-            <Col sm="3"><Stats></Stats></Col>
+            <Col sm="3">
+              <Stats
+                jobs={this.state.allJobs}
+              />
+            </Col>
             <Col sm="6">
               <Feed
                 createPost={this.createPost}

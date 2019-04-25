@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Bar} from 'react-chartjs-2';
 
 class PieChart extends Component{
     constructor(props){
         super(props);
         this.state = {
             chartData: {
-                labels: ["Front-end", "Back-end"],
+                labels: ["Internship", "Junior", "Mid", "Senior", "Team Lead"],
                 datasets:[{
                     label: 'Number of jobs',
                     data:[
-                        3,
-                        4
+                        0, //intern
+                        3, //jr
+                        4, //mid
+                        5, //sr
+                        0 //lead
                     ]
                 }
                 ],
