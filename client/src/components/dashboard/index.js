@@ -6,6 +6,7 @@ import Feed from "../Feed";
 import Posts from "../Posts";
 import InfiniteScroll from 'react-infinite-scroller';
 import MyJobs from "../MyJobs";
+import StickyWrap from "../StickyWrap";
 import axios from 'axios';
 
 class Dashboard extends Component {
@@ -79,9 +80,12 @@ class Dashboard extends Component {
         <Container fluid={true}>
           <Row>
             <Col sm="3">
+              
+              <StickyWrap>
               <Stats
-                jobs={this.state.allJobs}
+                // jobs={this.state.allJobs}
               />
+              </StickyWrap>
             </Col>
             <Col sm="6">
               <Feed
