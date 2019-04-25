@@ -32,22 +32,5 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  },
-  findByLevel: function(req, res) {
-    db.Job
-      .aggregate(
-        {
-          $group: {_id: '$level', total: {$sum: 1}}
-        }
-      , function(err, result) {
-        if(err){
-          console.log(err);
-        } else {
-          res.json(result)
-        }
-      }
-      )
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
   }
 };

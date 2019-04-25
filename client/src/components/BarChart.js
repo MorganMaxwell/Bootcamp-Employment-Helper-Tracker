@@ -15,9 +15,37 @@ class PieChart extends Component{
     }
 
     getLevels = () => {
-        axios.get('/api/job/levels')
+        axios.get('/api/job/')
         .then(res=> {
             console.log(res.data);
+            var intern = 0;
+            var jr = 0;
+            var mid = 0;
+            var sr = 0;
+            var lead = 0;
+            for (let i = 0; i < res.data.length; i++) {
+                switch (res.data[i].level) {
+                    case "Internship":
+                        intern++;
+                        break;
+                    case "Junior":
+                        jr++;
+                        break;
+                    case "Mid":
+                        mid++;
+                        break;
+                    case "Senior":
+                        sr++;
+                        break;
+                    case "Team Lead":
+                        lead++
+                        break;
+                
+                    default:
+                        break;
+                }
+                
+            }
 
         this.setState({
             chartData: {
@@ -25,11 +53,11 @@ class PieChart extends Component{
                 datasets:[{
                     label: 'Number of jobs',
                     data:[
-                        0, //intern
-                        3, //jr
-                        4, //mid
-                        5, //sr
-                        0 //lead
+                        intern, //intern
+                        jr, //jr
+                        mid, //mid
+                        sr, //sr
+                        lead //lead
                     ]
                 }
                 ],

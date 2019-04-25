@@ -10,9 +10,6 @@ router.route("/")
 router.route("/:id")
     .get(jobController.findById)
     .put(jobController.update)
-    .delete(jobController.remove);
-
-router.route("/levels")
-    .get(jobController.findByLevel);    
+    .delete(jobController.remove);   
 
 module.exports = router;
