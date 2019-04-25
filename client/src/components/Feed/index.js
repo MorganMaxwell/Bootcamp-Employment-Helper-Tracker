@@ -3,12 +3,8 @@ import CreatePost from "../CreatePost";
 import { Button } from "react-bootstrap";
 
 class Feed extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { 
-            modalShow: false,
-        };
+    state = {
+        modalShow: false,
     };
 
     render() {
@@ -16,7 +12,6 @@ class Feed extends Component {
             this.props.createPost(post);
             this.setState({ modalShow: false });
         };
-
         return (
             <div>
                 <Button
@@ -32,7 +27,7 @@ class Feed extends Component {
                 {this.props.children}
             </div>
         );
-    }
+    };
 };
 
 export default Feed;

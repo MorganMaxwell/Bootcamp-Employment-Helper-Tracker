@@ -39,9 +39,7 @@ class Dashboard extends Component {
           this.setState({ hasMorePosts: false });
         };
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(err => console.log(err));
   };
   getJobs = () => {
     axios.get('/api/job/')
@@ -55,14 +53,12 @@ class Dashboard extends Component {
   // end of initial data load group
 
   // post requests
-  createPost = (post) => {
-    
+  createPost = post => {
     axios({
       method: "post",
       url: "/api/post/",
       data: post
-    }).then(() => this.loadPosts())
-      .catch(err => console.log(err));
+    }).catch(err => console.log(err));
   };
   // end of post requests
 

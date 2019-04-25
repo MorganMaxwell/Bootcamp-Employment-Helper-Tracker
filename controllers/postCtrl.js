@@ -8,6 +8,7 @@ module.exports = {
       .find({})
       .skip(parseInt(skip))
       .limit(10)
+      .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

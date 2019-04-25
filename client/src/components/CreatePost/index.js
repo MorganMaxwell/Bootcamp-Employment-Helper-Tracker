@@ -3,7 +3,6 @@ import { Modal, Button, InputGroup, FormControl, Dropdown, DropdownButton } from
 import "./style.css";
 
 class CreatePost extends Component {
-
     state = {
         newPost: "New Post",
         category: "Category",
@@ -42,7 +41,7 @@ class CreatePost extends Component {
                 title: "",
                 body: "",
                 bodyChars: 140
-            })
+            });
         }
         else {
             this.setState({ newPost: "Please fill out all data before Posting!"});
