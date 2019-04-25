@@ -19,8 +19,12 @@ class LineChart extends Component{
       .then(res => {
         console.log(res.data);
         let allSal = res.data.map(job => {
-            return job.salary
+            return {x: 0, y: job.salary}
         })
+
+        for (let i = 0; i < allSal.length; i++) {
+            allSal[i] = {x: i, y: allSal[i].y}
+        }
 
         this.setState({
             chartData: {
