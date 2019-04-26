@@ -48,10 +48,13 @@
     position: relative;
     //position: -webkit-sticky;
     position: sticky;
-    padding: 1rem;
+    padding: 0;
     background: grey;
     color: black;
     z-index: 1;
+    padding: .2rem;
+    border-radius: 5px;
+    background: #83E983;
     
     &.is-top {
       top: 0px;    
@@ -101,16 +104,16 @@
   }
   
   .u-center-center {
-    display: flex;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .u-center-top {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: flex-start;
   }
   
   .u-feature-detect-sticky {

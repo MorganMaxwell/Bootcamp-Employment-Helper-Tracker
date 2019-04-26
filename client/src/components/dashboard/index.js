@@ -110,7 +110,11 @@ class Dashboard extends Component {
                 </InfiniteScroll>
               </Feed>
             </Col>
-            <Col sm="3"><MyJobs></MyJobs></Col>
+            <Col sm="3">
+              <StickyWrap>
+                <MyJobs/>
+              </StickyWrap>   
+            </Col>
           </Row>
         </Container>
       </div>

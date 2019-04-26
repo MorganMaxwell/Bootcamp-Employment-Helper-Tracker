@@ -31,6 +31,7 @@ const StickyBoundary = ({ children }) => (
 );
 
 class StickyBox extends React.Component {
+
   render() {
     const { mode, cssPositionSticky } = this.props;
     return (
@@ -65,8 +66,9 @@ class StickyWrap extends React.Component {
                 ref={el => (this.stickyBox = el)}
                 mode={this.state.mode}
                 cssPositionSticky={this.state.cssPositionSticky}
-                isSticky={this.state.isSticky}
-              />
+                isSticky={this.state.isSticky}>
+                {this.props.children}
+                </StickyBox>
               <StickyBoundary key="boundary">{""}</StickyBoundary>
             </React.Fragment>
           )}
@@ -77,8 +79,9 @@ class StickyWrap extends React.Component {
                 ref={el => (this.stickyBox = el)}
                 mode={this.state.mode}
                 cssPositionSticky={this.state.cssPositionSticky}
-                isSticky={this.state.isSticky}
-              />
+                isSticky={this.state.isSticky}>
+                {this.props.children}
+                </StickyBox>
             </React.Fragment>
           )}
         </StickyContainer>
