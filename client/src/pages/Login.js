@@ -1,38 +1,57 @@
 import React, { Component } from "react";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import axios from 'axios';
+import auth from '../auth';
+import {Redirect} from "react-router"
 
 class Login extends Component {
+  state = {
+    redirectToReferrer: false
+  }
+
+  loginUser = () => {
+    auth.login(()=>{
+      console.log(auth.isAuthenticated());
+      this.setState({redirectToReferrer: true});
+  })
+}
 
   render() {
+
+    if(this.state.redirectToReferrer){
+      return <Redirect to='/dashboard'/>
+    }
+
     return (
       <Container>
         <Row>
           <Col>
             <h2>Login Here</h2>
-            <form class="login">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
+            
+              <div>
+                <label>Email address</label>
                 <input
-                  type="email"
-                  class="form-control"
+                  type="email"  
                   id="email-input"
                   placeholder="Email"
+                  name="user"
+                  onChange={this.props.handleInput}
                 />
               </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+              <div>
+                <label>Password</label>
                 <input
                   type="password"
-                  class="form-control"
                   id="password-input"
                   placeholder="Password"
+                  name="password"
+                  onChange={this.props.handleInput}
                 />
               </div>
-              <button type="submit" class="btn btn-dark" id="loginbtn">
+              <button type="submit" className="btn btn-dark" id="loginbtn" onClick={()=>this.loginUser()}>
                 Login
               </button>
-            </form>
+            
           </Col>
         </Row>
       </Container>
