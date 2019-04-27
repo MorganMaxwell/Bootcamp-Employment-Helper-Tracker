@@ -11,7 +11,6 @@ class Login extends Component {
 
   loginUser = () => {
     auth.login(()=>{
-      console.log(auth.isAuthenticated());
       this.setState({redirectToReferrer: true});
   })
 }

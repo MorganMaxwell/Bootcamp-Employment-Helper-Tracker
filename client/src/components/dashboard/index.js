@@ -5,7 +5,7 @@ import Stats from "../Stats";
 import Feed from "../Feed";
 import Posts from "../Posts";
 import InfiniteScroll from 'react-infinite-scroller';
-import MyJobs from "../MyJobs";
+import JobFeed from "../JobFeed";
 import StickyWrap from "../StickyWrap";
 import axios from 'axios';
 import './style.css';
@@ -15,7 +15,7 @@ class Dashboard extends Component {
     posts: [],
     hasMorePosts: true,
     page: 0,
-    myJobs: [],
+    JobFeed: [],
     allJobs: []
   };
 
@@ -28,7 +28,7 @@ class Dashboard extends Component {
     })
       .then(response => {
         if (response.data) {
-          let temp = this.state.posts;
+          let temp = this.state.posts;          
           response.data.map(post => { return temp.push(post) });
           this.setState({
             posts: temp,
@@ -49,11 +49,8 @@ class Dashboard extends Component {
   getJobs = () => {
     axios.get('/api/job/')
       .then(res => {
-        this.setState({ allJobs: res.data })
+        this.setState({ allJobs: res.data })        
       });
-  };
-  componentDidMount = () => {
-    this.getJobs();
   };
   // end of initial data load group
 
@@ -77,6 +74,10 @@ class Dashboard extends Component {
   };
   // end of post requests
 
+  // PUT requests
+
+  // end of PUT requests
+
   render() {
     let posts = [];
     this.state.posts.map(post => { return posts.push(post) });
@@ -87,7 +88,6 @@ class Dashboard extends Component {
         <Container fluid={true}>
           <Row>
             <Col sm="3">
-              
               <StickyWrap>
               <Stats
                 // jobs={this.state.allJobs}
@@ -107,7 +107,7 @@ class Dashboard extends Component {
                   {posts.map(post => {
                     return (
                       <Posts
-                        key={post.title}
+                        key={post._id}
                         title={post.title}
                         body={post.body}
                         date={post.date}
@@ -119,10 +119,11 @@ class Dashboard extends Component {
             </Col>
             <Col sm="3">
               <StickyWrap>
-                <MyJobs 
+                <JobFeed
                   createJob={this.createJob}  
+                  jobs={this.state.allJobs}
                 />
-              </StickyWrap>   
+              </StickyWrap>
             </Col>
           </Row>
         </Container>
