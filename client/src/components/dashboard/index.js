@@ -118,7 +118,9 @@ class Dashboard extends Component {
             </Col>
             <Col sm="3">
               <StickyWrap>
-                <MyJobs/>
+                <MyJobs 
+                  createJob={this.createJob}  
+                />
               </StickyWrap>   
             </Col>
           </Row>
