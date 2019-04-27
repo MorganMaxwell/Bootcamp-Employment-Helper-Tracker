@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dash from './pages/Dash';
-import { STATES } from 'mongoose';
+import Landing from './pages/Landing';
 import Login from './pages/Login';
 import {ProtectedRoute} from "./protected.route";
 
@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            <Route exact path="/"/>
+            <Route exact path="/" component={Landing}/>
             <Route path="/login" exact render={props => 
             <Login
               {...props}
