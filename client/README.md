@@ -1,4 +1,4 @@
-# Project Title
+# ${Dev.Money}
 Our website is built to track employment status and job statistics based on a single 'cohort' of Coding Bootcamp classes. Users are encouraged to enter job data and salaries(__it's all anonymous__) which is used to provide data to help everyone get a Web Development Position!
 
 ## Getting Started
