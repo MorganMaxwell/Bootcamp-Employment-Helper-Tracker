@@ -18,7 +18,6 @@ class PieChart extends Component{
     getPositions = () => {
         axios.get('api/job/')
         .then(res=>{
-            console.log(res)
             var fr = 0;
             var back = 0;
             var fs = 0;

@@ -7,21 +7,21 @@ class Landing extends Component {
       <div>
         <header id="showcase">
           <h1>
-          <span class="first">$</span>
-            <span class ="parenth">(</span>
-            <span class ="dev">Dev</span>
-            <span class ="money">.Money</span>
-            <span class ="parenth">)</span>
+          <span className="first">$</span>
+            <span className ="parenth">(</span>
+            <span className ="dev">Dev</span>
+            <span className ="money">.Money</span>
+            <span className ="parenth">)</span>
           </h1>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi
             officiis ipsum officia numquam expedita ullam.
           </p>
-          <a href="/login" class="button">
+          <a href="/login" className="button">
             Login
           </a>
           ~ OR ~
-          <a href="#" class="button">
+          <a href="#" className="button">
             Register
           </a>
         </header>
@@ -58,13 +58,13 @@ class Landing extends Component {
           </p>
         </section>
         <section id="section-c">
-          <div class="box-1">
+          <div className="box-1">
             Track various stats of your cohort!
           </div>
-          <div class="box-2">
+          <div className="box-2">
             Post interview questions and advice to help your fellow Bootcamp alumni! alsdkjf;alskdjf;aoiehjf;laksndv;oaisdf;alksdnf;aksjd
           </div>
-          <div class="box-3">
+          <div className="box-3">
             Enter info on interviews and job offers of your own!
           </div>
         </section>

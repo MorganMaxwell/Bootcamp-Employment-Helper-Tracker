@@ -1,19 +1,30 @@
 import React from 'react';
 import './style.css';
-import { Row, Card, Button} from 'react-bootstrap';
+import { Row, Card } from 'react-bootstrap';
 
 export default function Posts(props) {
+    let date = new Date(props.date);
+    let dd = date.getDate();
+    let mm = date.getMonth();
+    let yyyy = date.getFullYear().toString();
+
     return (
         <div className="outer-div">
             <Row>
                 <Card className="text-center text-muted" bg="dark" variant="dark" id={props.title}>
-                    <Card.Header>{props.data}</Card.Header>
+                    <Card.Header>
+                        <h4>
+                            {props.title}
+                        </h4>
+                    </Card.Header>
                     <Card.Body className="text-left">
-                        <Card.Title>{props.title}</Card.Title>
                         <Card.Text>{props.body}</Card.Text>
-                        <Button variant="primary">Like</Button>
                     </Card.Body>
-                    <Card.Footer className="text-muted">{props.date}</Card.Footer>
+                    <Card.Footer>
+                        <div className="text-muted text-right">
+                            {`${dd}/${mm + 1}/${yyyy}`}
+                        </div>
+                    </Card.Footer>
                 </Card>
             </Row>
         </div>

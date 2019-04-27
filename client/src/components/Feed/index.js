@@ -32,7 +32,7 @@ class Feed extends Component {
                 {this.props.children}
             </div>
         );
-    }
+    };
 };
 
 export default Feed;
