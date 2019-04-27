@@ -120,7 +120,7 @@ class Dashboard extends Component {
             <Col sm="3">
               <StickyWrap>
                 <JobFeed
-                  createJob={this.createJob}  
+                  createJob={this.createJob} 
                   jobs={this.state.allJobs}
                 />
               </StickyWrap>
