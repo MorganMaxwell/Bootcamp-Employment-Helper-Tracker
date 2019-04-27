@@ -7,7 +7,7 @@ export default function Jobs(props) {
             <Accordion.Toggle as={Card.Header} eventKey="0" className='job-accordion'>
                 <span className="job-click">{props.level}</span>
             </Accordion.Toggle>
-            <Accordion.Collapse eventKey="0">
+            <Accordion.Collapse eventKey="1">
                 <Card.Body>{props.position}</Card.Body>
             </Accordion.Collapse>
         </Card>
