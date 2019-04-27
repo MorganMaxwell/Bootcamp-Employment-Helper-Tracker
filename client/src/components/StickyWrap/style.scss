@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 20px;
+  }
+  
+  body {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .react-app {
+    min-height: 100vh;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .app {
+    padding: .5rem .5rem 2rem;
+  }
+  
+  .sticky-container {
+    position: relative;
+    padding: .5rem 0;
+  }
+  
+  .sticky-boundary {
+    position: relative;
+    padding: 1rem;
+    margin: 0;
+    min-height: 120vh;
+  }
+  
+  .sticky-box {
+    @extend .u-center-center;
+    min-height: 20vh;
+    position: relative;
+    //position: -webkit-sticky;
+    position: sticky;
+    padding: 0;
+    background: grey;
+    color: black;
+    z-index: 1;
+    padding: .2rem;
+    border-radius: 5px;
+    background: #A3FFBE;
+    
+    &.is-top {
+      top: 0px;    
+      &.is-sticky{
+        box-shadow: 0 7px 2px -2px darkgray;
+      }
+    }
+    &.is-bottom {
+      bottom: 0px;    
+      &.is-sticky{
+        box-shadow: 0 -7px 2px -2px darkgray;
+      }
+    }
+  }
+  
+  .other-content {
+    padding: 1rem;
+    text-align: center;
+    min-height: 50vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    > h1 {
+      line-height: 1;
+      margin-bottom: .5rem;
+      font-size: 1.5rem;
+    }
+    
+    > * {
+      max-width: 100%; // Edge or IE11 is wierd
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      font-weight: inherit;
+    }
+    &.top {
+      min-height: 20vh;
+      background: #50cc5c;
+      color: black;
+    }
+    &.bottom {
+      min-height: 150vh;
+      background: #56e856;
+      color: black;
+    }
+  }
+  
+  .u-center-center {
+    display: block;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .u-center-top {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: flex-start;
+  }
+  
+  .u-feature-detect-sticky {
+    position: absolute;
+    position: sticky;
+    /*
+      position: -webkit-sticky;
+      position: -moz-sticky;
+      position: -ms-sticky;
+      position: -o-sticky;
+      position: sticky;
+    */
+  }

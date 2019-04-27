@@ -12,7 +12,7 @@ class Feed extends Component {
     };
 
     render() {
-        let modalClose = (post) => {
+        let modalClose = post => {
             this.props.createPost(post);
             this.setState({ modalShow: false });
         };
@@ -32,7 +32,7 @@ class Feed extends Component {
                 {this.props.children}
             </div>
         );
-    }
+    };
 };
 
 export default Feed;

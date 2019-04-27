@@ -17,7 +17,6 @@ class PieChart extends Component{
     getLevels = () => {
         axios.get('/api/job/')
         .then(res=> {
-            console.log(res.data);
             var intern = 0;
             var jr = 0;
             var mid = 0;
@@ -44,7 +43,6 @@ class PieChart extends Component{
                     default:
                         break;
                 }
-                
             }
 
         this.setState({
@@ -58,13 +56,18 @@ class PieChart extends Component{
                         mid, //mid
                         sr, //sr
                         lead //lead
+                    ],
+                    backgroundColor:[
+                        'white',
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)'
                     ]
                 }
                 ],
-                backgroundColor:[
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(255, 162, 132, 0.6)'
-                ]
+                
             }
         })
     })
@@ -76,7 +79,17 @@ class PieChart extends Component{
             data={this.state.chartData}
             width={100}
             height={50}
-            options={{ maintainAspectRatio: true }}
+            options={{
+                 maintainAspectRatio: true,
+                 scales: {
+                     yAxes: [{
+                         ticks: {
+                             beginAtZero: true,
+                             stepSize: 1
+                         }
+                     }]
+                 }
+                }}
             />
         )
     }

@@ -1,18 +1,18 @@
 db.jobs.insertMany([
     {
-        "position": "Junior Dev",
+        "position": "Front End",
         "level": "Junior",
         "salary": "50000",
         "isJob": false
     },
     {
-        "position": "Junior Dev",
+        "position": "Back End",
         "level": "Junior",
         "salary": 55000,
         "isJob": true
     },
     {
-        "position": "Senior Dev",
+        "position": "Full-Stack",
         "level": "Senior",
         "salary": 110000,
         "isJob": true

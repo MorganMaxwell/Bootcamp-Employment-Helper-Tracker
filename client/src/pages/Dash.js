@@ -5,11 +5,9 @@ class Dash extends Component {
 
   render() {
     return (
-        <div>
-            <Dashboard/> 
-        </div>
+      <Dashboard />
     );
-  }
-}
+  };
+};
 
 export default Dash;
