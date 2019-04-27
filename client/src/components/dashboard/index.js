@@ -8,6 +8,7 @@ import InfiniteScroll from 'react-infinite-scroller';
 import MyJobs from "../MyJobs";
 import StickyWrap from "../StickyWrap";
 import axios from 'axios';
+import './style.css';
 
 class Dashboard extends Component {
   state = {
@@ -81,7 +82,7 @@ class Dashboard extends Component {
     this.state.posts.map(post => { return posts.push(post) });
 
     return (
-      <div>
+      <div id="main">
         <NavHead></NavHead>
         <Container fluid={true}>
           <Row>

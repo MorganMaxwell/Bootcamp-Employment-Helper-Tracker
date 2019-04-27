@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from "react-bootstrap/Nav";
 import './style.css';
+import auth from "../../auth";
 
 export default function NavHead() {
     return (

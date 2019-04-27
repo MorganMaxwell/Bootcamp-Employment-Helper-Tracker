@@ -4,10 +4,10 @@ import Dashboard from '../components/Dashboard';
 class Dash extends Component {
 
   render() {
+    console.log("User on dash: " + this.props.user);
     return (
-        <div>
+            
             <Dashboard/> 
-        </div>
     );
   }
 }
