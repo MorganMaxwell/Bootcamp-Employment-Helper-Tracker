@@ -11,3 +11,15 @@ a:hover, #test:hover {
 #home-link{
 	color: #2ECC40;
 }
+
+.first {
+	color: yellow;
+}
+
+.parenth {
+	color: white;
+}
+
+.dev {
+	color: #42a4d9;
+}
