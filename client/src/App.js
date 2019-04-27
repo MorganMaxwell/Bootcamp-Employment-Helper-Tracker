@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dash from './pages/Dash';
+import { STATES } from 'mongoose';
 import Login from './pages/Login';
 import {ProtectedRoute} from "./protected.route";
 
@@ -34,7 +35,9 @@ class App extends Component {
             />
             }/>
             <ProtectedRoute 
-              exact path="/dashboard" component={Dash}
+              exact path="/dashboard" 
+              component={Dash}
+              user={this.state.user}
             />
             <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
