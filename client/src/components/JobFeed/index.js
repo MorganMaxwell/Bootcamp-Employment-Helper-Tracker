@@ -19,7 +19,7 @@ export default class JobFeed extends React.Component {
       this.props.createJob(job);
       this.setState({ modalShow: false });
     };
-    let jobs = this.state.jobs;
+
     return (
       <div>
         <h1>My Jobs</h1>
@@ -31,25 +31,22 @@ export default class JobFeed extends React.Component {
               Add new job
             </Button>
           </Card.Header>
-          <Accordion
-            defaultActiveKey="0">
-            {jobs.map(job => {
+          <Card.Body>
+            {this.props.jobs.map(job => {
               return (
-                <Jobs 
+                <Jobs
                   level={job.level}
                   position={job.position}
-                  isJob={job.isJob}
                 >
                 </Jobs>
               )
             })}
-          </Accordion>
+          </Card.Body>
+          <CreateJob
+            show={this.state.modalShow}
+            onHide={modalClose}
+          />
         </Card>
-
-        <CreateJob
-          show={this.state.modalShow}
-          onHide={modalClose}
-        />
       </div>
     );
   };

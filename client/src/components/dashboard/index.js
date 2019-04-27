@@ -52,9 +52,6 @@ class Dashboard extends Component {
         this.setState({ allJobs: res.data })        
       });
   };
-  componentDidMount = () => {
-    this.getJobs();
-  };
   // end of initial data load group
 
   // post requests
