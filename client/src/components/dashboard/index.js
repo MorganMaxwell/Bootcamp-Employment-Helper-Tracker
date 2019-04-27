@@ -47,9 +47,7 @@ class Dashboard extends Component {
   getJobs = () => {
     axios.get('/api/job/')
       .then(res => {
-        console.log(res.data);
-        
-        this.setState({allJobs: res.data})
+        this.setState({ allJobs: res.data })
       });
   };
   componentDidMount = () => {
@@ -59,12 +57,20 @@ class Dashboard extends Component {
 
   // post requests
   createPost = (post) => {
-    
+
     axios({
       method: "post",
       url: "/api/post/",
       data: post
     }).then(() => this.loadPosts())
+      .catch(err => console.log(err));
+  };
+  createJob = job => {
+    axios({
+      method: "post",
+      url: "/api/job/",
+      data: job
+    }).then(() => this.getJobs())
       .catch(err => console.log(err));
   };
   // end of post requests
@@ -106,7 +112,7 @@ class Dashboard extends Component {
                 </InfiniteScroll>
               </Feed>
             </Col>
-            <Col sm="3"><MyJobs></MyJobs></Col>
+            <Col sm="3"><MyJobs createJob={this.createJob}></MyJobs></Col>
           </Row>
         </Container>
       </div>

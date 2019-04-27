@@ -17,7 +17,6 @@ class PieChart extends Component{
     getLevels = () => {
         axios.get('/api/job/')
         .then(res=> {
-            console.log(res.data);
             var intern = 0;
             var jr = 0;
             var mid = 0;

@@ -17,7 +17,6 @@ class LineChart extends Component{
     getSalaries = () => {
         axios.get('/api/job/')
       .then(res => {
-        console.log(res.data);
         let allSal = res.data.map(job => {
             return {x: 0, y: job.salary}
         })
@@ -51,7 +50,6 @@ class LineChart extends Component{
     }
 
     render(){
-        console.log("sal",this.props.salaries)
         return(
             <Scatter
             data={this.state.chartData}
