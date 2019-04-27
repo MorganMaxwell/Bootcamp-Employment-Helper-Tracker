@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dash from './pages/Dash';
 import Login from './pages/Login';
+import { ProtectedRoute } from "./protected.route";
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/"/>
             <Route path="/login" exact component={Login}/>
-            <Route path="/dashboard" exact component={Dash}/>
+            <ProtectedRoute path="/dashboard" exact component={Dash}/>
+            <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
         </Router>
       </div>
